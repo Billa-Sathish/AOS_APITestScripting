@@ -18,7 +18,7 @@
         <stringProp name="HTTPSampler.implementation">HttpClient4</stringProp>
       </ConfigTestElement>
       <hashTree/>
-      <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager">
+      <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
         <collectionProp name="HeaderManager.headers">
           <elementProp name="" elementType="Header">
             <stringProp name="Header.name">accept</stringProp>
@@ -46,8 +46,9 @@
       <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="Thread Group">
         <intProp name="ThreadGroup.num_threads">1</intProp>
         <intProp name="ThreadGroup.ramp_time">1</intProp>
-        <longProp name="ThreadGroup.duration">30</longProp>
+        <longProp name="ThreadGroup.duration">60</longProp>
         <boolProp name="ThreadGroup.same_user_on_next_iteration">true</boolProp>
+        <boolProp name="ThreadGroup.scheduler">true</boolProp>
         <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
         <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller">
           <stringProp name="LoopController.loops">1</stringProp>
@@ -55,7 +56,7 @@
         </elementProp>
       </ThreadGroup>
       <hashTree>
-        <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="AccountCreateRequest">
+        <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="AccountCreateRequest" enabled="true">
           <boolProp name="TransactionController.parent">true</boolProp>
           <boolProp name="TransactionController.includeTimers">false</boolProp>
         </TransactionController>
@@ -82,7 +83,7 @@
   &quot;firstName&quot;: &quot;sa${RandomUserString}&quot;,&#xd;
   &quot;lastName&quot;: &quot;billa&quot;,&#xd;
   &quot;loginName&quot;: &quot;sa${RandomUserString}&quot;,&#xd;
-  &quot;password&quot;: &quot;${__RandomString(12,PASSword123,RandomPasswordString)}&quot;,&#xd;
+  &quot;password&quot;: &quot;Pass${__RandomString(8,word12345,RandomPasswordString)}&quot;,&#xd;
   &quot;phoneNumber&quot;: &quot;88001236610&quot;,&#xd;
   &quot;stateProvince&quot;: &quot;Telangana&quot;,&#xd;
   &quot;zipcode&quot;: &quot;500082&quot;&#xd;
@@ -103,7 +104,7 @@
               <intProp name="Assertion.test_type">16</intProp>
             </ResponseAssertion>
             <hashTree/>
-            <BoundaryExtractor guiclass="BoundaryExtractorGui" testclass="BoundaryExtractor" testname="Boundary Extractor">
+            <BoundaryExtractor guiclass="BoundaryExtractorGui" testclass="BoundaryExtractor" testname="Boundary Extractor" enabled="true">
               <stringProp name="BoundaryExtractor.useHeaders">false</stringProp>
               <stringProp name="BoundaryExtractor.refname">C_UserID</stringProp>
               <stringProp name="BoundaryExtractor.lboundary">userId&quot;:</stringProp>
@@ -116,7 +117,7 @@
             <hashTree/>
           </hashTree>
         </hashTree>
-        <TestAction guiclass="TestActionGui" testclass="TestAction" testname="Think Time">
+        <TestAction guiclass="TestActionGui" testclass="TestAction" testname="Think Time" enabled="true">
           <intProp name="ActionProcessor.action">1</intProp>
           <intProp name="ActionProcessor.target">0</intProp>
           <stringProp name="ActionProcessor.duration">${__Random(1000,2000,)}</stringProp>
@@ -128,7 +129,7 @@
           </UniformRandomTimer>
           <hashTree/>
         </hashTree>
-        <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="LoginRequest">
+        <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="LoginRequest" enabled="true">
           <boolProp name="TransactionController.parent">true</boolProp>
           <boolProp name="TransactionController.includeTimers">false</boolProp>
         </TransactionController>
@@ -146,7 +147,7 @@
                   <boolProp name="HTTPArgument.always_encode">false</boolProp>
                   <stringProp name="Argument.value">{&#xd;
   &quot;email&quot;: &quot;sa${RandomUserString}@gmail.com&quot;,&#xd;
-  &quot;loginPassword&quot;: &quot;${RandomPasswordString}&quot;,&#xd;
+  &quot;loginPassword&quot;: &quot;Pass${RandomPasswordString}&quot;,&#xd;
   &quot;loginUser&quot;: &quot;sa${RandomUserString}&quot;&#xd;
 }</stringProp>
                   <stringProp name="Argument.metadata">=</stringProp>
@@ -165,7 +166,7 @@
               <intProp name="Assertion.test_type">16</intProp>
             </ResponseAssertion>
             <hashTree/>
-            <BoundaryExtractor guiclass="BoundaryExtractorGui" testclass="BoundaryExtractor" testname="Boundary Extractor">
+            <BoundaryExtractor guiclass="BoundaryExtractorGui" testclass="BoundaryExtractor" testname="Boundary Extractor" enabled="true">
               <stringProp name="BoundaryExtractor.useHeaders">false</stringProp>
               <stringProp name="BoundaryExtractor.refname">C_Token</stringProp>
               <stringProp name="BoundaryExtractor.lboundary">token&quot;:&quot;</stringProp>
@@ -178,7 +179,7 @@
             <hashTree/>
           </hashTree>
         </hashTree>
-        <TestAction guiclass="TestActionGui" testclass="TestAction" testname="Think Time">
+        <TestAction guiclass="TestActionGui" testclass="TestAction" testname="Think Time" enabled="true">
           <intProp name="ActionProcessor.action">1</intProp>
           <intProp name="ActionProcessor.target">0</intProp>
           <stringProp name="ActionProcessor.duration">${__Random(1000,2000,)}</stringProp>
@@ -190,12 +191,12 @@
           </UniformRandomTimer>
           <hashTree/>
         </hashTree>
-        <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname=" LogoutRequest">
+        <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname=" LogoutRequest" enabled="true">
           <boolProp name="TransactionController.parent">true</boolProp>
           <boolProp name="TransactionController.includeTimers">false</boolProp>
         </TransactionController>
         <hashTree>
-          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="HTTP Request">
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="HTTP Request" enabled="true">
             <stringProp name="TestPlan.comments">https://www.advantageonlineshopping.com/accountservice/accountrest/api/v1/logout</stringProp>
             <stringProp name="HTTPSampler.path">/accountservice/accountrest/api/v1/logout</stringProp>
             <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
@@ -228,7 +229,7 @@
             <hashTree/>
           </hashTree>
         </hashTree>
-        <TestAction guiclass="TestActionGui" testclass="TestAction" testname="Think Time">
+        <TestAction guiclass="TestActionGui" testclass="TestAction" testname="Think Time" enabled="true">
           <intProp name="ActionProcessor.action">1</intProp>
           <intProp name="ActionProcessor.target">0</intProp>
           <stringProp name="ActionProcessor.duration">${__Random(1000,2000,)}</stringProp>
@@ -266,7 +267,7 @@
             </elementProp>
           </HTTPSamplerProxy>
           <hashTree>
-            <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Assertion">
+            <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Assertion" enabled="true">
               <collectionProp name="Asserion.test_strings">
                 <stringProp name="708096220">Account delete successful</stringProp>
               </collectionProp>
@@ -288,7 +289,7 @@
           <hashTree/>
         </hashTree>
         <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree">
-          <boolProp name="ResultCollector.error_logging">false</boolProp>
+          <boolProp name="ResultCollector.error_logging">true</boolProp>
           <objProp>
             <name>saveConfig</name>
             <value class="SampleSaveConfiguration">
